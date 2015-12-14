@@ -11,17 +11,62 @@ $(function(){
 var Status = 'open';
 
 
-$(".sidebarHeader").click(function(){
-	console.log('hi')
+$(".toggle1").click(function(){
+	var newDiv = document.createElement('div');
+		newDiv.style.width = '478.5px';
+		newDiv.style.height = '115px';
+		newDiv.style.position = 'absolute';
+		newDiv.style.top = '0px';
+		newDiv.style.left = '693.5px';
+		newDiv.style.backgroundColor = '#B5BCBA';
+		newDiv.className = "midmenubar"
+
 	if(Status === 'open'){
-		console.log('hi')
-		$('.sidebar').toggle();
-		$(".label").css({'margin-left':'0px'});
+		
+		
+
+		$('.sidebar').hide();
+
+		$("body").append(newDiv);
+
+		$("#menubar2").css({"left":1172})
+
+		$('.sidehandle').css({"right":0})
+
+		$('.btmbar').css({"width":"1250px"})
+		$('#bid').css({"margin-left":"500px"})
+		$('#save').css({"margin-left":"1140px"})
+
+		$('.btmbarHeader').css({"width":"1250px"})
+
+		$('.btmblock').css({"left":"165px"})
+
+
+
+
+
 		Status = 'closed';
+
 	}else{
-		$('.sidebar').toggle();
-		$(".label").css({'margin-left':'-0.5px'});
-		Status = 'open'
+
+		$('.sidebar').show();
+
+		$(".midmenubar").remove();
+
+		$("#menubar2").css({"left":693})
+
+		$('.sidehandle').css({"right":479})
+
+		$('.btmbar').css({"width":"1040px"})
+		$('#bid').css({"margin-left":"312px"})
+		$('#save').css({"margin-left":"945px"})
+
+		$('.btmbarHeader').css({"width":"1040px"})
+
+		$('.btmblock').css({"left":"20px"})
+
+		Status = 'open';
+
 	}
 })
 
@@ -41,13 +86,25 @@ $(".sidebarHeader").click(function(){
 // 	}
 // })
 
-
+var Toggle = 'on';
 
 
 $(".btmbarHeader").click(function(){
-	$('.btmbar').toggle()
-})
+	
+	if (Toggle === 'on') {
+		$('.btmbar').hide()
 
+		Toggle = 'off';
+	}
+	else {
+		$('.btmbar').show()
+
+		Toggle = 'on';
+	}
+	
+
+
+});
 
 
 

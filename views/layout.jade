@@ -23,10 +23,17 @@ html(lang='en')
 		<link rel="stylesheet" href="/styles.css">
 		link(rel="stylesheet", type="text/css", href="/main.css")
 	body
-		div#menubar
+		div#menubar1
 			div#header
 				a(href='/')
 					h1#title TradeGrid
+			div#accountattach
+				form(id="switchaccount")
+					label#acctlbl Account:
+					select(id="accountlink",form="accountattach" name="accountlink")
+						option.acctoption(value="myaccount") ehruska
+						option.acctoption(value="addaccount") 
+							a Add Account
 			div#cssmenu
 				<ul id='nav'>
 
@@ -132,7 +139,24 @@ html(lang='en')
 				</ul>
 				</li>
 
-				<li class='has-sub'><a href='#'>Sign in/Join</a>
+				<li class='has-sub'><a href='#'>Education</a>
+				<ul>
+				<li class='has-sub'><a href='#'>Watch List</a>
+				<ul>
+				<li><a href='#'>Sub Product</a></li>
+				<li><a href='#'>Sub Product</a></li>
+				</ul>
+				</li>
+				<li class='has-sub'><a href='#'>Portfolio Planner</a>
+				<ul>
+				<li><a href='#'>Sub Product</a></li>
+				<li><a href='#'>Sub Product</a></li>
+				</ul>
+				</li>
+				</ul>
+				</li>
+
+				<li class='has-sub'><a href='#'>Client Services</a>
 				<ul>
 				<li class='has-sub'><a href='#'>Watch List</a>
 				<ul>
@@ -150,23 +174,43 @@ html(lang='en')
 				</li>
 
 				</ul>
-		div.block1
-		div.block2
+
+		div#menubar2
+			div#search
+				form.form-group(action="/search", method="post")
+						input#searchinput.searchinput(type="text", placeholder="Symbols (AAPL, IBM, MSFT) or keywords", name="search")
+						input#searchbtn(type="submit", value="Search")
+						label#searchlabel Symbol Lookup
+			
+			div.table7
+				table
+					tr
+						td 
+							a(href="#")
+								div(width="100%" height="100%") Feedback
+						td 
+							a(href="#") 
+								div Help Center
+						td 
+							a(href="#")
+								div Contact Us
+						td 
+							a(href="#")
+								div Log Out
+		//- div.block1
+		//- div.block2
 		div.body1
-			h6.acctinfo Balances >
-			div.acctpt1
-				img(src='/img/acct1.png' width="40%")
-			h6.acctinfo Positions >
-			div.acctpt2
-				img(src='/img/acct2.png' width="80%")
+			img.imgblock(src='/img/1.png' width="95%" height="270px")
 		div.body2
 			h5#indices Indices(market snapshot):
 			img#indexes(src="/img/indices.png")
-		//- button.btn1(onclick='sweetAlert("Oops...", "Something went wrong!", "error");') Press Me
-
-		div.sidebarHeader
-			img#toggle(src="/img/collapseIcon.png" height="25px")
+		div.sidehandle
+			img.toggle1(src="/img/icon2.png" height="4.5%")
 		div.sidebar
+			div.sideheader
+				img.toggle2(src="/img/icon1.png" height="100%")
+				div#dock My Dock
+			hr(width="100%")
 			div.stats
 				h5
 					b Account Balance
@@ -177,11 +221,14 @@ html(lang='en')
 				h6   Options BP
 				h6
 					b Account value
+			div.sidept1
+			div.sidept2
+			div.sidept3
 		div.btmblock
 			div.btmbar
 				form(action="/getQuote", method="post")
 					input#quoteinput(type="text")
-					input(type="submit", value="Quote")
+					input#getquote(type="submit", value="Quote")
 				form#quoteaction(action="/actionQuote", method="post")
 					label.label(for="action") Action
 					<select id="action",form="quoteaction" name="action">
@@ -200,7 +247,7 @@ html(lang='en')
 					</select>
 					label.label(for="price") Price
 					input(type="text", id="price", class="input", name="price")
-					label.label(for="time") Time
+					label.label(for="time") Time-in-force
 					<select form="quoteaction", id="time", class="input", name="time">
 					<option value="day">Day</option>
 					<option value="dayext">Day + ext</option>
@@ -209,7 +256,9 @@ html(lang='en')
 					<option value="extam">Ext. AM</option>
 					<option value="extpm">Ext. PM</option>
 					</select>
-					input(type="submit")
+					input#bid(type="submit" value="Review Order")
+				div#link
+					a#save(href="#") Save for later
 			div.btmbarHeader
 		block content
 		script(src="/client.js")

@@ -141,6 +141,7 @@
   width: 160px;
   font-size: 12px;
   background: #333333;
+  opacity: 0.8;
   text-decoration: none;
   color: #dddddd;
   -webkit-transition: color .2s ease;
